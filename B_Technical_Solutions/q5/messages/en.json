@@ -1,0 +1,14 @@
+{
+  "HomePage": {
+    "title": "Goodbye world 🔥🔥"
+  },
+  "Sidebar": {
+    "appname": "AppName",
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "Header": {
+    "search": "Search"
+  }
+}
