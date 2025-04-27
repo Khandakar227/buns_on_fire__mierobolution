@@ -34,6 +34,9 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
 - **Technical Implementation:**
   - **Data Inputs:** Menu items, kitchen load, cooking times, staff availability, time patterns
   - **Model:** Regression models (XGBoost → LSTM/RNN)
+    XGBoost can predict using fixed features like "orders last month", "orders two months ago", etc.
+    LSTM/RNN Look at the whole sequence of past sales and learn patterns over time more automatically.
+
   - **Workflow:** Order placed → AI prediction → Customer countdown timer → Automated compensation for delays
   - **Impact:** Improved customer satisfaction and patience during peak hours
 
