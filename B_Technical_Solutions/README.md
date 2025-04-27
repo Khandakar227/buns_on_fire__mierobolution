@@ -29,11 +29,13 @@ In the `q3` directory, we implemented a real-time notification system using `web
 - `ws` as the nodejs webSocket library.
 - `MySQL` for the database.
 
-A simple diagram of the architecture is provided in the [q3_diagram](q3_diagram.png) file.
+A simple diagram of the architecture is provided in the [q3_diagram](q3_diagram.png) file:
+![q3 daigram](q3_diagram.png)
 
 ### Q4: Cloud-based system architecture
 
-The cloud-based system architecture diagram is provided in the [q4_cloud](q4_cloud.PNG) file.
+The cloud-based system architecture diagram is provided in the [q4_cloud](q4_cloud.PNG) file:
+![q4_cloud](q4_cloud.PNG)
 
 ### Q5: Real-time admin/manager dashboard
 
