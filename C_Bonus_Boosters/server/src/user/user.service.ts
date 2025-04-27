@@ -74,61 +74,65 @@ export class UserService {
         return result;
     }
 
-    /* Middlewares */
-    static async checkUser(req: Request, res: Response, next: NextFunction) {
-        const token = req.headers['authorization']?.split(' ')[1];
-        if (!token) {
-            res.status(401).json({ message: 'Unauthorized' });
-            return;
-        }
-
-        try {
-            const payload = await JwtService.verifyToken(token, process.env.JWT_SECRET as string);
-            res.locals.user = payload;
-            next();
-        } catch (error) {
-            console.log(error);
-            res.status(401).json({ message: 'Unauthorized' });
-        }
+     // Manager only     
+      static async getAllUsers() {
+        const [rows]: any = await pool.query(
+            `SELECT user_id, username, role, is_active, last_login FROM users`
+        );
+        return rows;
     }
 
-    static async checkAdmin(req: Request, res: Response, next: NextFunction) {
-        const token = req.headers['authorization']?.split(' ')[1];
-        if (!token) {
-            res.status(401).json({ message: 'Unauthorized' });
-            return;
+     // Manager only     
+    static async updateUser(user_id: string, data: { username?: string; password?: string; role?: string; is_active?: boolean; }) {
+        const fields: string[] = [];
+        const values: any[] = [];
+
+        if (data.username) {
+            fields.push('username = ?');
+            values.push(data.username);
+        }
+        if (data.password) {
+            const hashedPassword = await bcrypt.hash(data.password, 10);
+            fields.push('password_hash = ?');
+            values.push(hashedPassword);
+        }
+        if (data.role) {
+            fields.push('role = ?');
+            values.push(data.role);
+        }
+        if (typeof data.is_active != 'undefined') {
+            fields.push('is_active = ?');
+            values.push(data.is_active);
         }
 
-        try {
-            const payload = await JwtService.verifyToken(token, process.env.JWT_SECRET as string);
-            if (payload.role !== 'admin') {
-                res.status(403).json({ message: 'Forbidden' });
-                return;
-            }
-            res.locals.user = payload;
-            next();
-        } catch (error) {
-            res.status(401).json({ message: 'Unauthorized' });
+        if (fields.length === 0) {
+            throw new Error('No fields to update');
         }
+
+        values.push(user_id);
+
+        const sql = `UPDATE users SET ${fields.join(', ')} WHERE user_id = ?`;
+        const [result]: any = await pool.query(sql, values);
+
+        if (result.affectedRows === 0) {
+            throw new Error('User not found');
+        }
+
+        return { message: 'User updated successfully' };
     }
 
-    static async checkManager(req: Request, res: Response, next: NextFunction) {
-        const token = req.headers['authorization']?.split(' ')[1];
-        if (!token) {
-            res.status(401).json({ message: 'Unauthorized' });
-            return;
+    // Manager only     
+    static async deleteUser(user_id: string) {
+        const [result]: any = await pool.query(
+            `DELETE from users WHERE user_id = ?`,
+            [user_id]
+        );
+
+        if (result.affectedRows === 0) {
+            throw new Error('User not found or already deleted');
         }
 
-        try {
-            const payload = await JwtService.verifyToken(token, process.env.JWT_SECRET as string);
-            if (payload.role !== 'manager' && payload.user_id !== parseInt(req.params.id)) {
-                res.status(403).json({ message: 'Forbidden' });
-                return;
-            }
-            res.locals.user = payload;
-            next();
-        } catch (error) {
-            res.status(401).json({ message: 'Unauthorized' });
-        }
+        return { message: 'User deactivated successfully' };
     }
 }
+

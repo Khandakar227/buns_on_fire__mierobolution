@@ -1,9 +1,10 @@
 import { Router, Request, Response } from 'express';
 import {UserService} from './user.service'
+import { AuthService } from '../auth/authService';
 
 const router = Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', AuthService.authorizeManager, async (req, res) => {
     try {
         const { username, password } = req.body;
         const user = await UserService.createUser({ username, password });
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', AuthService.authorizeManager, async (req, res) => {
     try {
         const { id } = req.params;
         const user = await UserService.findById(id);
@@ -43,5 +44,40 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+
+router.put('/:id', AuthService.authorizeManager, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await UserService.updateUser(id, req.body);
+        res.status(200).json(user);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+router.delete('/:id', AuthService.authorizeManager, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await UserService.deleteUser(id);
+        res.status(200).json(user);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+router.delete('/all', AuthService.authorizeManager, async (req, res) => {
+    try {
+        const users = await UserService.getAllUsers();
+        res.status(200).json(users);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
 
 export default router;

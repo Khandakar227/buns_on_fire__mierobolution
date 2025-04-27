@@ -3,6 +3,7 @@ import http from 'http';
 import cors from 'cors';
 import OrderRouter from './order/order.controller';
 import TableRouter from './table/table.controller';
+import UserController from './user/user.controller';
 import MenuItemController from './menu_items/menuitem.controller';
 import { WsSocketService } from './ws/wsService';
 import { DatabaseService } from './db/db.service';
@@ -24,6 +25,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/v1/order', OrderRouter);
+app.use('/api/v1/user', UserController);
 app.use('/api/v1/table', TableRouter);
 app.use('/api/v1/menu_items', MenuItemController);
 
