@@ -1,7 +1,5 @@
 # BistroAI: AI-Based Dynamic Wait Time and Table Prediction System
 
-## Executive Summary
-
 BistroAI is an intelligent system that leverages artificial intelligence to solve critical operational challenges in restaurant management, enhancing customer experience while optimizing business efficiency.
 
 ## Current Challenges in Bistro92

@@ -1,5 +1,6 @@
 ## Buns on Fire - MIE Robulation
 
 - Simulation Video - [Google Drive Link](https://drive.google.com/file/d/1nT8amtq2vzVtiJRB1EP265msqhKFWCiS/view?usp=sharing)
-- Server Side code is in `B_Technical_Solutions/q3/server` and `B_Technical_Solutions/q5`
-Table Order Code for Esp32 is in `TableEsp32/TableEsp32.ino` and Kitchen Display Code in `B_Technical_Solutions/q3/Esp32/KitchenDisplay/KitchenDisplay.ino`.
+- Server Side code is in `B_Technical_Solutions/q3/server` and dashboard code `B_Technical_Solutions/q5`
+- Dashboard hosted at [Bristro 92 Dashboard](https://bistro-92-client.vercel.app).
+- Table Order Code for Esp32 is in `TableEsp32/TableEsp32.ino` and Kitchen Display Code in `B_Technical_Solutions/q3/Esp32/KitchenDisplay/KitchenDisplay.ino`.
