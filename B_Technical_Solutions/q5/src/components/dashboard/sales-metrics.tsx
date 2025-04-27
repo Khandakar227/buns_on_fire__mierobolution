@@ -37,7 +37,7 @@ export default function SalesMetrics() {
                             isUpdating ? "text-green-600 scale-110" : "text-green-800",
                         )}
                     >
-                        ${todaySales.toFixed(2)}
+                        BDT {todaySales.toFixed(2)}
                     </div>
                     <div className="flex items-center text-green-600">
                         <TrendingUp className="h-4 w-4 mr-1" />
