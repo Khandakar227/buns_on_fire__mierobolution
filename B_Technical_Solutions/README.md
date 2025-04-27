@@ -37,6 +37,16 @@ A simple diagram of the architecture is provided in the [q3_diagram](q3_diagram.
 The cloud-based system architecture diagram is provided in the [q4_cloud](q4_cloud.PNG) file:
 ![q4_cloud](q4_cloud.PNG)
 
+#### System Overview:
+- **Smart Pads (used by customers)** and the **Manager Dashboard** both will communicate with the **Backend**.
+- The **Backend API** handles normal requests (orders, menu, viewing orders) and updates the Database.
+- For real-time updates (like live order status), the API talks to a **WebSocket Server** running in the same port as backend.
+- The **WebSocket Server** uses **Redis Pub/Sub** to quickly broadcast messages to all connected devices.
+- **Smart Pads** receive real-time messages through the WebSocket connection.
+- All server traffic is managed by a **Load Balancer** and runs on auto-scaled cloud servers.
+- **Backend API** will be running inside a Dockerized container.
+
+
 ### Q5: Real-time admin/manager dashboard
 
 We have designed a real-time admin/manager dashboard using `Next.js`. The source code can be found in the `q5` directory. The prototype dashboard has been hosted on `Vercel`, which can be accessed at [Bistro 92 Dashboard](https://bistro-92-client.vercel.app/).
