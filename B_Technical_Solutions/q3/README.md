@@ -1,16 +1,28 @@
-# Prisma Express TypeScript Boilerplate
+## API Routes
+### Order:
+**Method**: `POST` \
+**url**: `http://localhost:3000/api/v1/order` \
+**Request body**:
+```json
+{
+	"table_id": 3,
+	"items": [
+		{"item_id": 1, "quantity": 2},
+		{"item_id": 3, "quantity": 2}
+	]
+}
+```
 
-A boilerplate for building Express.js applications with TypeScript and Prisma.
 
-## Features
-- Express.js for handling HTTP requests
-- TypeScript for type safety
-- Prisma for database management
-- SQLite as the default database (can be changed to PostgreSQL, MySQL, etc.)
-- Singleton Prisma Client instance
+## Setup
+1. Go to `server`. Run `npm i` and `npm run dev`.
+2. Open a new terminal. Install ngrok to run it on cloud simulator. `npm i -g ngrok`
+3. Go to `ngrok.com` create an account and copy the `auth token`. Add this command in your terminal:
+```bash
+ngrok config add-authtoken $YOUR_AUTHTOKEN
+```
+4. run `ngrok http 3000`. Copy the generated url.
 
-## Getting Started
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Khandakar227/pet-boilerplate.git
+## Hardware Code
+1. Modify the web server url with the ngrok generated url.
+2. Upload the `Esp32/KitchenDisplay.ino` to Esp32.

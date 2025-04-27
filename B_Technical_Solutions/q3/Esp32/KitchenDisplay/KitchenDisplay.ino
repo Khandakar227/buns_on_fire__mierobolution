@@ -11,7 +11,7 @@ using namespace websockets;
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 
-// WebSocket server
+// WebSocket server (ngrok tunnelling URL)
 const char* websockets_server_host = "60a2-103-162-187-38.ngrok-free.app"; 
 const uint16_t websockets_server_port = 443; 
 
