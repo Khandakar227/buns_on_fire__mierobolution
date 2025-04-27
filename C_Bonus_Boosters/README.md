@@ -28,9 +28,10 @@ Node js is non blocking and event driven, can handle many requests at once.
 - A feature to update firmware remotely without pulling down devices.
 
 ## Replace Esp32 with Raspberry Pi 4/5
+- Esp32 can process around 30–50 messages per second (optimized code with C++, around 100 bytes each) which may not enough for large scale.
 - Full Linux, multi-core CPU, GBs of RAM, can run Node.js, Python, etc.
 - This will enable complex UI/UX (touch, animations, fancy order sorting)
 - Multiple parallel MQTT/WebSocket subscriptions
 
 
-It is highly unlikely for a Restaurant management system to reach a heavy load of 100k users/sec. But if it ever happens it will still be prevented following these strategies.
+It is highly unlikely for a Restaurant management system to reach a heavy load of 10k - 100k users/sec. But if it ever happens it can still be prevented following these strategies.

@@ -39,7 +39,7 @@ The cloud-based system architecture diagram is provided in the [q4_cloud](q4_clo
 
 #### System Overview:
 - **Smart Pads (used by customers)** and the **Manager Dashboard** both will communicate with the **Backend**.
-- The **Backend API** handles normal requests (orders, menu, viewing orders) and updates the Database.
+- The **Backend API** handles orders, menu, viewing orders and updates etc. requests to the Database.
 - For real-time updates (like live order status), the API talks to a **WebSocket Server** running in the same port as backend.
 - The **WebSocket Server** uses **Redis Pub/Sub** to quickly broadcast messages to all connected devices.
 - **Smart Pads** receive real-time messages through the WebSocket connection.
