@@ -69,13 +69,11 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
 
 ## Proposed Technology Stack
 
-| Component          | Technologies                             |
-| ------------------ | ---------------------------------------- |
-| Data Ingestion     | Kafka                      |
-| Storage            |  MySQL, Timescale, Redis          |
-| AI Models          | TensorFlow / PyTorch / XGBoost |
-| Serving            | TensorFlow, FastAPI        |
-| Smart Pad Frontend | Next.js / Flutter                          |
-| Manager Dashboard  | Next.js + Node.js                          |
-| Cloud Platform     | AWS (EC2, Lambda, SageMaker)             |
-| Edge Computing     | Raspberry Pi 5 / Jetson Nano Xaviar    |
+| Component          | Technologies                      |
+| ------------------ | --------------------------------- |
+| Data Ingestion     | Kafka                             |
+| Database           | MySQL/TimeScale/PostgresQL, Redis |
+| AI Stack           | TensorFlow / PyTorch / XGBoost    |
+| Smart Pad Frontend | Flutter/React                     |
+| Dashboard          | Next.js + Node.js/GO              |
+| Hardware           | Raspberry Pi 5/Jetson Nano Xaviar |
