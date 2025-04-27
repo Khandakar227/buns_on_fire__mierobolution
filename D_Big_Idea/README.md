@@ -16,17 +16,12 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
    - Manual inventory ordering based on guesswork rather than data
    - Leads to food spoilage, stockouts, and revenue loss
 
-3. **Static Menu Experience**
-
-   - Customers see identical menus regardless of preferences or inventory
-   - Causes reduced engagement and missed upselling opportunities
-
-4. **Slow Table Turnover**
+3. **Slow Table Turnover**
 
    - No system to predict table availability
    - Results in wasted seating capacity and longer wait times
 
-5. **Limited Operational Visibility**
+4. **Limited Operational Visibility**
    - No monitoring of staff or device efficiency
    - Operational bottlenecks remain undetected
 
@@ -42,7 +37,7 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
   - **Workflow:** Order placed → AI prediction → Customer countdown timer → Automated compensation for delays
   - **Impact:** Improved customer satisfaction and patience during peak hours
 
-### 2. AI Inventory Forecasting
+### 2. Inventory Forecasting
 
 - **Solution:** Real-time inventory predictions and management
 - **Benefit:** Reduces overstock and stockouts, improves margins
@@ -52,17 +47,7 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
   - **Workflow:** 6-24 hour consumption forecasts → Restocking recommendations → Supplier API integration
   - **Impact:** 30-50% reduction in food waste
 
-### 3. Dynamic Personalized Menus
-
-- **Solution:** Adaptive menus based on customer behavior and inventory
-- **Benefit:** Increased engagement, higher sales, improved inventory management
-- **Technical Implementation:**
-  - **Data Inputs:** Browsing behavior, order history, inventory status, time factors
-  - **Model:** Behavioral clustering with recommendation systems
-  - **Workflow:** Smart Pad menu customization → Personalized dish highlights → Targeted offers
-  - **Impact:** Enhanced upselling and customer satisfaction
-
-### 4. Table Turnover Prediction
+### 3. Table Turnover Prediction
 
 - **Solution:** AI-powered table availability forecasting
 - **Benefit:** Optimized seating and improved guest flow
@@ -72,7 +57,7 @@ BistroAI is an intelligent system that leverages artificial intelligence to solv
   - **Workflow:** Table completion prediction → Front-desk availability dashboard
   - **Impact:** Reduced wait times and improved throughput
 
-### 5. Service Efficiency Monitoring
+### 4. Service Efficiency Monitoring
 
 - **Solution:** AI models to detect service anomalies
 - **Benefit:** Proactive identification of operational bottlenecks
